@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CVPreview from './Components/CVPreview';
-import CVForm from './Components/CVForm';
+import Preview from './Components/Preview';
+import Form from './Components/Form';
 import './App.css';
 
 class App extends Component {
@@ -32,28 +32,33 @@ class App extends Component {
   render() {
     const { name, title, email, phone, address, city } =
       this.state.personalDetails;
+    const { experience, education } = this.state;
     return (
       <div className="App">
         <div className="cv-containers">
           <div className="cv-builder-container">
-            <CVForm
+            <Form
               name={name}
               title={title}
               email={email}
               phone={phone}
               address={address}
               city={city}
+              experience={experience}
+              education={education}
               handleChange={this.handleChange}
             />
           </div>
           <div className="cv-preview-container">
-            <CVPreview
+            <Preview
               name={name}
               title={title}
               email={email}
               phone={phone}
               address={address}
               city={city}
+              experience={experience}
+              education={education}
             />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './CVForm.css';
+import './Form.css';
 
 class CVForm extends Component {
   render() {
@@ -7,6 +7,9 @@ class CVForm extends Component {
       this.props;
     return (
       <div className="cv-form">
+        <section>
+          <h2>Personal Details</h2>
+        </section>
         <input
           name="name"
           type="text"
