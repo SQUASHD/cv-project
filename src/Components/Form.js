@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Form.css';
+import '../styles/Form.css';
 
-class CVForm extends Component {
+class Form extends Component {
   render() {
     const { name, title, email, phone, address, city, handleChange } =
       this.props;
@@ -57,4 +57,4 @@ class CVForm extends Component {
   }
 }
 
-export default CVForm;
+export default Form;

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import Preview from './Components/Preview';
-import Form from './Components/Form';
-import './App.css';
+import PersonalView from './components/view/Personal';
+import Experience from './components/view/Experience';
+import Education from './components/view/Education';
+import Form from './components/Form';
+import data from './defaultdata';
+import './styles/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -15,9 +18,19 @@ class App extends Component {
         address: '',
         city: '',
       },
-      // experience: [],
-      // education: [],
+      experience: [],
+      education: [],
     };
+  }
+
+  componentDidMount() {
+    const { personal, experience, education } = data;
+    this.setState((prevState) => ({
+      ...prevState,
+      personalDetails: personal,
+      experience: experience,
+      education: education,
+    }));
   }
 
   handleChange = (e) => {
@@ -30,9 +43,32 @@ class App extends Component {
   };
 
   render() {
+    const { experience, education } = this.state;
     const { name, title, email, phone, address, city } =
       this.state.personalDetails;
-    const { experience, education } = this.state;
+
+    const educationList = education.map((item) => {
+      return {
+        id: item.id,
+        school: item.school,
+        degree: item.degree,
+        startDate: item.startDate,
+        endDate: item.endDate,
+        description: item.description,
+      };
+    });
+
+    const experienceList = experience.map((item) => {
+      return {
+        id: item.id,
+        position: item.position,
+        company: item.company,
+        startDate: item.startDate,
+        endDate: item.endDate,
+        description: item.description,
+      };
+    });
+
     return (
       <div className="App">
         <div className="cv-containers">
@@ -50,16 +86,25 @@ class App extends Component {
             />
           </div>
           <div className="cv-preview-container">
-            <Preview
-              name={name}
-              title={title}
-              email={email}
-              phone={phone}
-              address={address}
-              city={city}
-              experience={experience}
-              education={education}
-            />
+            <div className="cv-preview">
+              <PersonalView
+                name={name}
+                title={title}
+                email={email}
+                phone={phone}
+                address={address}
+                city={city}
+              />
+              {educationList.length > 0 ? (
+                <Education
+                  heading="Education"
+                  CompletedEducation={educationList}
+                />
+              ) : null}
+              {experienceList.length > 0 ? (
+                <Experience heading="Experience" experiences={experienceList} />
+              ) : null}
+            </div>
           </div>
         </div>
       </div>

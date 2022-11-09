@@ -31,3 +31,12 @@
   width: 100%;
   height: 100vh;
 }
+
+.cv-preview {
+  gap: 16px;
+}
+
+.experience,
+.education {
+  padding: 8px 0;
+}

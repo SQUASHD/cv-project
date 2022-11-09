@@ -7,6 +7,7 @@ const data = {
     email: 'john.doe@itcompany.com',
     phone: '555-555-5555',
     address: '123 Main St',
+    city: 'New York, NY',
   },
   experience: [
     {
