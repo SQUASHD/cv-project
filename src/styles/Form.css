@@ -14,3 +14,9 @@ input {
   border: 1px solid #ccc;
   padding: 4px;
 }
+
+.group {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 8px;
+}

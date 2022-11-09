@@ -42,6 +42,8 @@ class App extends Component {
     }));
   };
 
+  addExperienceItem() {}
+
   render() {
     const { experience, education } = this.state;
     const { name, title, email, phone, address, city } =
@@ -83,6 +85,7 @@ class App extends Component {
               experience={experience}
               education={education}
               handleChange={this.handleChange}
+              addExperienceItem={this.addExperienceItem}
             />
           </div>
           <div className="cv-preview-container">
