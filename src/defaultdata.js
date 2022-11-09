@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 const data = {
   personal: {
     name: 'John Doe',
-    title: 'Web Developer',
+    title: 'Senior Developer',
     email: 'john.doe@itcompany.com',
     phone: '555-555-5555',
     address: '123 Main St',
@@ -12,7 +12,7 @@ const data = {
   experience: [
     {
       id: uuidv4(),
-      position: 'Web Developer',
+      position: 'Senior Developer',
       company: 'IT Company',
       startDate: '2019',
       endDate: 'Present',

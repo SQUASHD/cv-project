@@ -95,14 +95,14 @@ class App extends Component {
                 address={address}
                 city={city}
               />
+              {experienceList.length > 0 ? (
+                <Experience heading="Experience" experiences={experienceList} />
+              ) : null}
               {educationList.length > 0 ? (
                 <Education
                   heading="Education"
                   CompletedEducation={educationList}
                 />
-              ) : null}
-              {experienceList.length > 0 ? (
-                <Experience heading="Experience" experiences={experienceList} />
               ) : null}
             </div>
           </div>
