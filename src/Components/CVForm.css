@@ -1,0 +1,15 @@
+* {
+  font-family: inherit;
+}
+
+.cv-form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  appearance: none;
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 4px;
+}
