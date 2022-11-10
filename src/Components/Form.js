@@ -17,6 +17,8 @@ class Form extends Component {
       addEducationItem,
       handleChangeExperience,
       handleChangeEducation,
+      removeExperienceItem,
+      removeEducationItem,
     } = this.props;
     const { experience, education } = this.props;
     return (
@@ -87,6 +89,8 @@ class Form extends Component {
                     key={item.id}
                     item={item}
                     onChange={handleChangeExperience}
+                    addItem={addExperienceItem}
+                    removeItem={removeExperienceItem}
                   />
                 );
               })
@@ -110,6 +114,8 @@ class Form extends Component {
                     key={item.id}
                     item={item}
                     onChange={handleChangeEducation}
+                    addItem={addEducationItem}
+                    removeItem={removeEducationItem}
                   />
                 );
               })

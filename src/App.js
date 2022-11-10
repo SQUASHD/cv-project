@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import PersonalView from './components/view/Personal';
 import Experience from './components/view/Experience';
 import Education from './components/view/Education';
@@ -73,9 +74,45 @@ class App extends Component {
     }));
   };
 
-  addExperienceItem() {}
+  addExperienceItem = () => {
+    const newExperience = {
+      id: uuidv4(),
+      position: '',
+      company: '',
+      startDate: '',
+      endDate: '',
+      description: '',
+    };
+    this.setState((prevState) => ({
+      experience: [...prevState.experience, newExperience],
+    }));
+  };
 
-  addEducationItem() {}
+  addEducationItem = () => {
+    const newEducation = {
+      id: uuidv4(),
+      school: '',
+      degree: '',
+      startDate: '',
+      endDate: '',
+      description: '',
+    };
+    this.setState((prevState) => ({
+      education: [...prevState.education, newEducation],
+    }));
+  };
+
+  removeExperienceItem = (id) => {
+    this.setState((prevState) => ({
+      experience: prevState.experience.filter((item) => item.id !== id),
+    }));
+  };
+
+  removeEducationItem = (id) => {
+    this.setState((prevState) => ({
+      education: prevState.education.filter((item) => item.id !== id),
+    }));
+  };
 
   render() {
     const { experience, education } = this.state;
@@ -122,6 +159,8 @@ class App extends Component {
               addEducationItem={this.addEducationItem}
               handleChangeExperience={this.handleChangeExperience}
               handleChangeEducation={this.handleChangeEducation}
+              removeExperienceItem={this.removeExperienceItem}
+              removeEducationItem={this.removeEducationItem}
             />
           </div>
           <div className="cv-preview-container">

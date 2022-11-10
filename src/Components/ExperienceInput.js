@@ -1,7 +1,7 @@
 import React from 'react';
 
 function ExperienceInput(props) {
-  const { id, item, onChange } = props;
+  const { id, item, onChange, addItem, removeItem } = props;
   return (
     <div className="group">
       <input
@@ -45,10 +45,16 @@ function ExperienceInput(props) {
         onChange={(e) => onChange(e, id)}
       />
       <div className="btn-group">
-        <button type="button" className="remove-btn">
+        <button
+          type="button"
+          className="remove-btn"
+          onClick={() => {
+            removeItem(id);
+          }}
+        >
           Remove
         </button>
-        <button type="button" className="add-btn">
+        <button type="button" className="add-btn" onClick={addItem}>
           Add
         </button>
       </div>
