@@ -34,6 +34,7 @@ class App extends Component {
   }
 
   handleChange = (e) => {
+    console.log(e.target.name, e.target.value);
     this.setState((prevState) => ({
       personalDetails: {
         ...prevState.personalDetails,
@@ -42,7 +43,39 @@ class App extends Component {
     }));
   };
 
+  handleChangeExperience = (e, id) => {
+    const { name, value } = e.target;
+    this.setState((prevState) => ({
+      experience: prevState.experience.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            [name]: value,
+          };
+        }
+        return item;
+      }),
+    }));
+  };
+
+  handleChangeEducation = (e, id) => {
+    const { name, value } = e.target;
+    this.setState((prevState) => ({
+      education: prevState.education.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            [name]: value,
+          };
+        }
+        return item;
+      }),
+    }));
+  };
+
   addExperienceItem() {}
+
+  addEducationItem() {}
 
   render() {
     const { experience, education } = this.state;
@@ -86,6 +119,9 @@ class App extends Component {
               education={education}
               handleChange={this.handleChange}
               addExperienceItem={this.addExperienceItem}
+              addEducationItem={this.addEducationItem}
+              handleChangeExperience={this.handleChangeExperience}
+              handleChangeEducation={this.handleChangeEducation}
             />
           </div>
           <div className="cv-preview-container">

@@ -1,23 +1,23 @@
 import React from 'react';
 
-function ExperienceInput(props) {
+function EducationInput(props) {
   const { id, item, onChange } = props;
   return (
     <div className="group">
       <input
-        name="position"
+        name="degree"
         id={id}
         type="text"
-        placeholder="Position"
-        value={item.position}
+        placeholder="Degree"
+        value={item.degree}
         onChange={(e) => onChange(e, id)}
       />
       <input
-        name="company"
+        name="school"
         id={id}
         type="text"
-        placeholder="Company"
-        value={item.company}
+        placeholder="School"
+        value={item.school}
         onChange={(e) => onChange(e, id)}
       />
       <input
@@ -56,4 +56,4 @@ function ExperienceInput(props) {
   );
 }
 
-export default ExperienceInput;
+export default EducationInput;

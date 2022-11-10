@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ExperienceInput from './ExperienceInput';
+import EducationInput from './EducationInput';
 import '../styles/Form.css';
 
 class Form extends Component {
@@ -13,6 +14,9 @@ class Form extends Component {
       city,
       handleChange,
       addExperienceItem,
+      addEducationItem,
+      handleChangeExperience,
+      handleChangeEducation,
     } = this.props;
     const { experience, education } = this.props;
     return (
@@ -79,14 +83,33 @@ class Form extends Component {
               experience.map((item) => {
                 return (
                   <ExperienceInput
-                    key={item.id}
                     id={item.id}
-                    company={item.company}
-                    position={item.position}
-                    startDate={item.startDate}
-                    endDate={item.endDate}
-                    description={item.description}
-                    handleChange={handleChange}
+                    key={item.id}
+                    item={item}
+                    onChange={handleChangeExperience}
+                  />
+                );
+              })
+            )}
+          </section>
+          <section>
+            <h2>Education</h2>
+            {education.length === 0 ? (
+              <button
+                type="button"
+                className="add-btn"
+                onClick={addEducationItem}
+              >
+                Add
+              </button>
+            ) : (
+              education.map((item) => {
+                return (
+                  <EducationInput
+                    id={item.id}
+                    key={item.id}
+                    item={item}
+                    onChange={handleChangeEducation}
                   />
                 );
               })

@@ -9,6 +9,7 @@ function Experience(props) {
       <h2>Experience</h2>
       {experiences.map((experience) => (
         <ExperienceItem
+          id={experience.id}
           key={experience.id}
           position={experience.position}
           company={experience.company}

@@ -9,6 +9,7 @@ function Education(props) {
       <h2>Education</h2>
       {CompletedEducation.map((education) => (
         <EducationItem
+          id={education.id}
           key={education.id}
           school={education.school}
           degree={education.degree}
