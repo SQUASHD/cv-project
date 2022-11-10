@@ -7,10 +7,8 @@ import Form from './components/Form';
 import data from './defaultdata';
 import './styles/App.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const App = () => {
+  const[CV, setCV] = useState({
       personalDetails: {
         name: '',
         title: '',
@@ -21,8 +19,7 @@ class App extends Component {
       },
       experience: [],
       education: [],
-    };
-  }
+    })
 
   componentDidMount() {
     const { personal, experience, education } = data;
@@ -34,7 +31,7 @@ class App extends Component {
     }));
   }
 
-  handleChange = (e) => {
+  const handleChange = (e) => {
     console.log(e.target.name, e.target.value);
     this.setState((prevState) => ({
       personalDetails: {
@@ -44,7 +41,7 @@ class App extends Component {
     }));
   };
 
-  handleChangeExperience = (e, id) => {
+  const handleChangeExperience = (e, id) => {
     const { name, value } = e.target;
     this.setState((prevState) => ({
       experience: prevState.experience.map((item) => {
@@ -59,7 +56,7 @@ class App extends Component {
     }));
   };
 
-  handleChangeEducation = (e, id) => {
+  const handleChangeEducation = (e, id) => {
     const { name, value } = e.target;
     this.setState((prevState) => ({
       education: prevState.education.map((item) => {
@@ -74,7 +71,7 @@ class App extends Component {
     }));
   };
 
-  addExperienceItem = () => {
+  const addExperienceItem = () => {
     const newExperience = {
       id: uuidv4(),
       position: '',
@@ -88,7 +85,7 @@ class App extends Component {
     }));
   };
 
-  addEducationItem = () => {
+  const addEducationItem = () => {
     const newEducation = {
       id: uuidv4(),
       school: '',
@@ -102,13 +99,13 @@ class App extends Component {
     }));
   };
 
-  removeExperienceItem = (id) => {
+  const removeExperienceItem = (id) => {
     this.setState((prevState) => ({
       experience: prevState.experience.filter((item) => item.id !== id),
     }));
   };
 
-  removeEducationItem = (id) => {
+  const removeEducationItem = (id) => {
     this.setState((prevState) => ({
       education: prevState.education.filter((item) => item.id !== id),
     }));
@@ -154,13 +151,13 @@ class App extends Component {
               city={city}
               experience={experience}
               education={education}
-              handleChange={this.handleChange}
-              addExperienceItem={this.addExperienceItem}
-              addEducationItem={this.addEducationItem}
-              handleChangeExperience={this.handleChangeExperience}
-              handleChangeEducation={this.handleChangeEducation}
-              removeExperienceItem={this.removeExperienceItem}
-              removeEducationItem={this.removeEducationItem}
+              handleChange={handleChange}
+              addExperienceItem={addExperienceItem}
+              addEducationItem={addEducationItem}
+              handleChangeExperience={handleChangeExperience}
+              handleChangeEducation={handleChangeEducation}
+              removeExperienceItem={removeExperienceItem}
+              removeEducationItem={removeEducationItem}
             />
           </div>
           <div className="cv-preview-container">
