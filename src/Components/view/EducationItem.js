@@ -6,9 +6,8 @@ function EducationItem(props) {
   return (
     <div className="education">
       <h4>{degree}</h4>
-      <h5>{school}</h5>
       <p>
-        {start} - {end}
+        {school} | {start} - {end}
       </p>
       <p>{description}</p>
     </div>

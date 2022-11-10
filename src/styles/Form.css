@@ -19,4 +19,13 @@ input {
   display: flex;
   flex-direction: column;
   padding-bottom: 8px;
+  gap: 4px;
+}
+
+section {
+  padding: 8px 0;
+}
+
+section h2 {
+  padding-bottom: 8px;
 }

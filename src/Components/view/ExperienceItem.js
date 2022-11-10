@@ -6,9 +6,9 @@ function ExperienceItem(props) {
   return (
     <div className="experience">
       <h4>{position}</h4>
-      <h5>{company}</h5>
+
       <p>
-        {start} - {end}
+        {company} | {start} - {end}
       </p>
       <p>{description}</p>
     </div>
